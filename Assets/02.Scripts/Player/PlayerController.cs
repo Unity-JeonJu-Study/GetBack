@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
         if (!_animator.GetBool(IsMoving))
         {
             // transform.rotation = _cam.transform.rotation;
+            transform.forward = new Vector3(_cam.transform.forward.x,0f,_cam.transform.forward.z);
         }
 
         if (isMoving)
@@ -56,11 +57,10 @@ public class PlayerController : MonoBehaviour
             _animator.SetFloat(InputY, inputY * offset);
         }
 
-        if (offset > 0.5f) moveSpeed = 4f;
-        else moveSpeed = 2f;
-        transform.forward = new Vector3(_cam.transform.forward.x,0f,_cam.transform.forward.z);
-        if(isMoving)
-        transform.position += transform.forward.normalized * Time.deltaTime * moveSpeed;
+        //if (offset > 0.5f) moveSpeed = 4f;
+        //else moveSpeed = 2f;
+       // if(isMoving)
+        //transform.position += transform.forward.normalized * Time.deltaTime * moveSpeed;
     }
 
     private bool CheckGround()
